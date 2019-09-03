@@ -10,28 +10,3 @@
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
 }
-
-.header {
-  grid-area: h;
-  background-color: #7b8dff;
-}
-
-.header img {
-  width: 50px;
-}
-
-.nav {
-  background-color: #cce500;
-  grid-area: n;
-}
-
-.content {
-  background-color: #ff4632;
-  grid-area: c;
-}
-
-.content img {
-  width: 100%;
-  background-color: #ff4632;
-  grid-area: c;
-}

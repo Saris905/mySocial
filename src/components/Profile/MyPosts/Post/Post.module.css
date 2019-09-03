@@ -1,0 +1,9 @@
+
+.item {
+    vertical-align: center;
+}
+
+.item img {
+    border-radius: 50%;
+    width: 60px;
+}
