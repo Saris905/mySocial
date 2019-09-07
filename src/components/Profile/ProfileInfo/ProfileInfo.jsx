@@ -4,7 +4,7 @@ import s from './ProfileInfo.module.css';
 const ProfileInfo = () => {
     return (
         <div>
-            <div>
+            <div className={s.topImage}>
                 <img src="https://d32k22adwkwumx.cloudfront.net/wp-content/uploads/2017/10/koh-nang-yuan-BEACH-THAILAND0316.jpg" alt=""/>
             </div>
             <div className={s.descriptionBlock}>

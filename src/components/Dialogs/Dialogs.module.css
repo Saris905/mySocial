@@ -1,10 +1,35 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    background: darkgrey;
+    box-sizing: border-box;
+}
+
+.dialog {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.dialog:hover {
+    background: #dadada;
+}
+
+.dialog img {
+    width: 60px;
+    border-radius: 50%;
 }
 
 .dialogsItems {
     padding: 10px;
+}
+
+.dialogsItems a {
+    text-decoration: none;
+    color: #3145ff;
 }
 
 .dialogsItems .active{
@@ -15,6 +40,48 @@
 
 }
 
+
+/* MESSAGES */
+
 .messages {
     padding: 10px;
+    position: relative;
+    height: 450px;
 }
+
+.messagesField {
+    overflow: scroll;
+    height: 75%;
+}
+
+.messages .message {
+    padding: 10px 10px;
+    background: #fff;
+    margin: 10px 0;
+    border-radius: 8px 8px;
+}
+
+/*textField*/
+
+.textField {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 10px 0;
+    width: 97%; /* разобрать почему не 100*/
+    display: flex;
+    justify-content: space-around;
+}
+
+.sendButton {
+    width: 150px;
+    font-size: 18px;
+    margin: 0 0 0 10px;
+}
+
+.textField textarea {
+    width: 100%;
+    font-size: 18px;
+}
+
+
