@@ -1,23 +1,25 @@
 import * as serviceWorker from './serviceWorker';
-import state, {subscribe} from "./redux/state";
+import store from "./redux/state";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, updateNewPostText} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/>
-        </BrowserRouter>, document.getElementById('root'));
+            <App state={state} dispatch={ store.dispatch.bind(store) } store={store} />
+        </BrowserRouter>, document.getElementById('root')); // (getState() мы вызываем(уже нет), чтоб получить
+    // содержимое, а addPost просто передаем, по этой причине, к моменту вызова addPost контекст this будет равен
+    // контексту объекта из которого вызывается(стоит слева от .addPost()) Поэтому используем bind чтобы сохранить родительский контекст до самого вызова
+
 
 };
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState()); // первичный запуск с исходными данными
 
-subscribe(rerenderEntireTree); // во изб. импорта, при первичной отрисовке ф-я возвращает тело нашей ф-ии "наверх" и там перезаписывает его
+store.subscribe(rerenderEntireTree); // во изб. импорта, при первичной отрисовке ф-я возвращает тело нашей ф-ии "наверх" и там перезаписывает его
 
 
 // If you want your app to work offline and load faster, you can change
