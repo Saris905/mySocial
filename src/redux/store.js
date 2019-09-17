@@ -40,7 +40,7 @@ let store = {
         return this._state;
     },
     subscribe(observer) {
-        this._callSubscriber = observer; // это - паттерн observer(почитать) / publisher-subscriber(доп)
+        this._callSubscriber = observer; // это - паттерн observer / publisher-subscriber(доп)
     },
 
     dispatch(action) { // state меняется только через dispatch

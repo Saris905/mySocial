@@ -1,5 +1,5 @@
 import * as serviceWorker from './serviceWorker';
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -19,7 +19,10 @@ let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState()); // первичный запуск с исходными данными
 
-store.subscribe(rerenderEntireTree); // во изб. импорта, при первичной отрисовке ф-я возвращает тело нашей ф-ии "наверх" и там перезаписывает его
+store.subscribe( () => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+}); // во изб. импорта, при первичной отрисовке ф-я возвращает тело нашей ф-ии "наверх" и там перезаписывает его
 
 
 // If you want your app to work offline and load faster, you can change
